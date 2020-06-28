@@ -15,6 +15,12 @@ export default {
       title: 'Title'
     },
     {
+      name: 'showreel',
+      type: 'string',
+      title: 'Homepage showreel',
+      description: 'Paste the full Vimeo URL here, e.g. https://vimeo.com/412399969'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',
@@ -29,13 +35,6 @@ export default {
       options: {
         layout: 'tags'
       }
-    },
-    {
-      name: 'author',
-      type: 'reference',
-      description: 'Publish an author and set a reference to them here.',
-      title: 'Author',
-      to: [{type: 'person'}]
     }
   ]
 }

@@ -1,27 +1,23 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import SectionWhoWeAre from '../components/section-who-we-are'
-import SectionOurWork from '../components/section-our-work'
-import SectionOurDirectors from '../components/section-our-directors'
-import SectionOurFacilities from '../components/section-our-facilities'
 import SectionWorkWithUs from '../components/section-work-with-us'
 
 export const query = graphql`
-  query IndexPageQuery {
+  query WhoPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
-      showreel
       keywords
       description
     }
   }
 `
 
-const IndexPage = props => {
+const WhoPage = props => {
   const {data, errors} = props
 
   if (errors) {
@@ -43,16 +39,19 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-
-      [hero video - {site.showreel}]
-      <hr />
-      <SectionWhoWeAre />
-      <SectionOurWork />
-      <SectionOurDirectors />
-      <SectionOurFacilities />
-      <SectionWorkWithUs />
+      <Container>
+        <h1>Who we are</h1>
+        <p>CMS zone 1</p>
+        <p>CMS zone 2</p>
+        <div>
+          <div>Person 1</div>
+          <div>Person 2</div>
+          <div>Person 3</div>
+        </div>
+        <SectionWorkWithUs />
+      </Container>
     </Layout>
   )
 }
 
-export default IndexPage
+export default WhoPage

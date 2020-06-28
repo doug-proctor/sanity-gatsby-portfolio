@@ -8,7 +8,7 @@ import Container from './container'
 
 import styles from './project.module.css'
 
-function Project (props) {
+function Article (props) {
   const {_rawBody, title, mainImage, publishedAt} = props
   return (
     <article className={styles.root}>
@@ -43,4 +43,4 @@ function Project (props) {
   )
 }
 
-export default Project
+export default Article

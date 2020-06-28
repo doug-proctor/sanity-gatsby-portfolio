@@ -2,13 +2,13 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Project from '../components/project'
+import Director from '../components/director'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query ProjectTemplateQuery($id: String!) {
-    project: sanityProject(id: {eq: $id}) {
+  query DirectorTemplateQuery($id: String!) {
+    director: sanityDirector(id: {eq: $id}) {
       id
       publishedAt
       mainImage {
@@ -42,22 +42,22 @@ export const query = graphql`
   }
 `
 
-const ProjectTemplate = props => {
+const DirectorTemplate = props => {
   const {data, errors} = props
-  const project = data && data.project
+  const director = data && data.director
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {project && <SEO title={project.title || 'Untitled'} />}
+      {director && <SEO title={director.name || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {project && <Project {...project} />}
+      {director && <Director {...director} />}
     </Layout>
   )
 }
 
-export default ProjectTemplate
+export default DirectorTemplate

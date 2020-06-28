@@ -1,0 +1,23 @@
+@import '../styles/custom-media.css';
+
+.root {
+  box-sizing: border-box;
+  text-align: center;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+}
+
+/*.title {*/
+/*  */
+/*}*/
+
+.description {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/*.link {*/
+
+/*}*/
